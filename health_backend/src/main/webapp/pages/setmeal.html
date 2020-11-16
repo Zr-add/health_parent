@@ -278,9 +278,10 @@
                             type:res.data.flag?"success":"error",
                             message:res.data.message
                         })
+                    }).finally(()=>{
                         this.dialogFormVisible=false;
                         this.findPage();
-                    })
+                    });
                 },
                 //分页查询
                 findPage() {
@@ -290,7 +291,6 @@
                         queryString: this.pagination.queryString
                     }
                     axios.post("/setmeal/findPage.do",pram).then((res) => {
-                        this.pagination.pageSize = res.data.pageSize
                         this.pagination.total = res.data.total
                         this.dataList = res.data.rows;
                     })

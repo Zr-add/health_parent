@@ -4,6 +4,7 @@ package com.ithema.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.ithema.constant.RedisConstant;
 import com.ithema.dao.SetmealDao;
 import com.ithema.entity.PageResult;
 import com.ithema.entity.QueryPageBean;
@@ -13,6 +14,7 @@ import com.ithema.service.SetmealService;
 import org.apache.zookeeper.Op;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.JedisPool;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,10 +28,14 @@ public class SetmealServiceImpl implements SetmealService {
     @Autowired
     private SetmealDao setmealDao;
 
+    @Autowired
+    private JedisPool jedisPool;
+
     @Override
     public void add(Setmeal setmeal, Integer[] checkgroupIds) {
         setmealDao.add(setmeal);
         Integer id = setmeal.getId();
+        jedisPool.getResource().sadd(RedisConstant.SETMEAL_PIC_DB_RESOURCES,setmeal.getImg());
         for (Integer checkgroupId : checkgroupIds) {
             Map<String, Integer> stringIntegerHashMap = new HashMap<>();
             stringIntegerHashMap.put("checkgroupId",checkgroupId);
