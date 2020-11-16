@@ -1,0 +1,6 @@
+com\ithema\dao\CheckGroupDao.class
+com\ithema\service\impl\SetmealServiceImpl.class
+com\ithema\dao\CheckItemDao.class
+com\ithema\service\impl\CheckItemServiceImpl.class
+com\ithema\dao\SetmealDao.class
+com\ithema\service\impl\CheckGroupServiceImpl.class

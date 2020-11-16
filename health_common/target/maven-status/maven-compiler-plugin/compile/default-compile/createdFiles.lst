@@ -1,0 +1,16 @@
+com\ithema\constant\RedisConstant.class
+com\ithema\entity\Result.class
+com\ithema\constant\MessageConstant.class
+com\ithema\pojo\Menu.class
+com\ithema\pojo\User.class
+com\ithema\pojo\Member.class
+com\ithema\pojo\Permission.class
+com\ithema\entity\PageResult.class
+com\ithema\pojo\CheckItem.class
+com\ithema\pojo\Order.class
+com\ithema\pojo\OrderSetting.class
+com\ithema\pojo\Role.class
+com\ithema\pojo\Setmeal.class
+com\ithema\util\QiniuUtils.class
+com\ithema\entity\QueryPageBean.class
+com\ithema\pojo\CheckGroup.class
